@@ -22,6 +22,7 @@
  *	
  *	GITHUB : https://github.com/don/cordova-plugin-ble-central#advertising-data
  *		  	 https://github.com/don/cordova-plugin-ble-central
+ *	En mode debug : https://github.com/apache/cordova-plugin-console :	cordova plugin add cordova-plugin-console
  */
 var InfantAccessBLE = {
     // Application Constructor
@@ -82,7 +83,7 @@ var InfantAccessBLE = {
 			{
 				alert( JSON.stringify( device ) );
 			}, 
-			failure
+			InfantAccessScanFailure
 		);	
 		setTimeout
 		(
@@ -117,7 +118,7 @@ var InfantAccessBLE = {
 	*/	
 	InfantAccessConnectDevice : function( device_id, InfantAccessConnectSuccess, InfantAccessConnectFailure )
 	{
-		ble.connect( device_id, connectSuccess, InfantAccessConnectFailure );		
+		ble.connect( device_id, InfantAccessConnectSuccess, InfantAccessConnectFailure );		
 	}
 	,
 	/**
@@ -146,4 +147,4 @@ var InfantAccessBLE = {
 };
 
 //On initialize InfantAccessBLE
-InfantAccessBLE.initialize(); 
+InfantAccessBLE.initialize();
